@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Melee combat dice comparison calculator">
+  <title>Melee Combat Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="page-header">
+      <p class="eyebrow">Melee combat rules · Playtest tool</p>
+      <h1>Melee Combat Calculator</h1>
+      <p class="intro">Enter both sets of dice rolls to see the combat result.</p>
+    </header>
+
+    <section class="roll-panel" aria-label="Combat dice rolls">
+      <div class="roll-group your-rolls">
+        <h2>Your rolls</h2>
+        <div class="dice-fields">
+          <label class="dice-field red-field" for="your-red">
+            <span class="dice-label"><span class="die-dot red-dot"></span>Red</span>
+            <input id="your-red" type="number" min="1" max="8" step="1" inputmode="numeric" placeholder="1–8">
+          </label>
+          <label class="dice-field blue-field" for="your-blue">
+            <span class="dice-label"><span class="die-dot blue-dot"></span>Blue</span>
+            <input id="your-blue" type="number" min="1" max="8" step="1" inputmode="numeric" placeholder="1–8">
+          </label>
+        </div>
+      </div>
+
+      <div class="roll-group opponent-rolls">
+        <h2>Opponents rolls</h2>
+        <div class="dice-fields">
+          <label class="dice-field red-field" for="opponent-red">
+            <span class="dice-label"><span class="die-dot red-dot"></span>Red</span>
+            <input id="opponent-red" type="number" min="1" max="8" step="1" inputmode="numeric" placeholder="1–8">
+          </label>
+          <label class="dice-field blue-field" for="opponent-blue">
+            <span class="dice-label"><span class="die-dot blue-dot"></span>Blue</span>
+            <input id="opponent-blue" type="number" min="1" max="8" step="1" inputmode="numeric" placeholder="1–8">
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <div class="action-buttons">
+      <button id="compare-button" type="button">Compare rolls</button>
+      <button id="reset-button" class="secondary-button" type="button">Reset</button>
+    </div>
+
+    <p id="error-message" class="error-message" role="alert" hidden></p>
+
+    <section id="result" class="result-panel" aria-live="polite" aria-atomic="true" hidden>
+      <p class="result-kicker">Combat result</p>
+      <h2 id="result-title"></h2>
+      <p id="result-description" class="result-description"></p>
+      <div class="comparison-breakdown">
+        <h3>Dice comparisons</h3>
+        <div id="red-comparison" class="comparison-row"></div>
+        <div id="blue-comparison" class="comparison-row"></div>
+      </div>
+    </section>
+
+    <section class="history-panel" aria-labelledby="history-heading">
+      <div class="history-header">
+        <div>
+          <p class="result-kicker">This browser</p>
+          <h2 id="history-heading">Combat history <span id="history-count" class="history-count">0</span></h2>
+        </div>
+        <button id="clear-history-button" class="text-button" type="button">Clear history</button>
+      </div>
+      <p id="history-empty" class="history-empty">Your completed combats will appear here.</p>
+      <ol id="history-list" class="history-list"></ol>
+    </section>
+
+    <footer>
+      <p>Based on the Result States in Melee Alpha Draft Rules v0.8.</p>
+      <p>Combat history is saved in this browser on this device.</p>
+    </footer>
+  </main>
+</body>
+</html>
