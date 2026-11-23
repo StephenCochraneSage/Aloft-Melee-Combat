@@ -28,8 +28,8 @@ function readRoll(input, label) {
   if (value === "") throw new Error(`Please enter a value for ${label}.`);
 
   const number = Number(value);
-  if (!Number.isInteger(number) || number < 1 || number > 8) {
-    throw new Error(`${label} must be a whole number between 1 and 8.`);
+  if (!Number.isInteger(number) || number < 1 || number > 14) {
+    throw new Error(`${label} must be a whole number between 1 and 14.`);
   }
   return number;
 }
